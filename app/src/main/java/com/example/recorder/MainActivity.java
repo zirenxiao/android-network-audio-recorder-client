@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                tc = new TcpClient(Settings.IP_ADDRESS, Settings.PORT);
+//                tc = new TcpClient(Settings.IP_ADDRESS, Settings.PORT);
+                tc = new TcpClient(((EditText)findViewById(R.id.address)).getText().toString(), Integer.parseInt(((EditText)findViewById(R.id.port)).getText().toString()));
                 tc.start();
                 b.setEnabled(false);
             }
