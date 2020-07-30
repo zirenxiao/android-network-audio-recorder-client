@@ -12,24 +12,28 @@
         android:ems="10"
         android:text="212.64.23.117" />
 
-    <EditText
-        android:id="@+id/port"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="8081" />
-
     <Button
-        android:id="@+id/button"
+        android:id="@+id/start_button"
         android:layout_width="192dp"
         android:layout_height="wrap_content"
-        android:text="连接" />
+        android:text="Start Recording" />
+
+    <Button
+        android:id="@+id/echo_button"
+        android:layout_width="192dp"
+        android:layout_height="wrap_content"
+        android:text="Echo Testing" />
+
+    <Button
+        android:id="@+id/exit_button"
+        android:layout_width="192dp"
+        android:layout_height="wrap_content"
+        android:text="Stop and exit" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
-        android:layout_height="583dp"
+        android:layout_height="match_parent"
         android:scrollbars="vertical"
         android:verticalScrollbarPosition="right" />
 </LinearLayout>

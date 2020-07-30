@@ -23,7 +23,6 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
     private static TextView t;
-    private static Button b;
     private TcpClient tc = null;
 
     @Override
@@ -32,16 +31,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         checkPermissons();
         t = (TextView)findViewById(R.id.textView5);
-        b = findViewById(R.id.button);
         t.setMovementMethod(new ScrollingMovementMethod());
-        b.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.start_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-//                tc = new TcpClient(Settings.IP_ADDRESS, Settings.PORT);
-                tc = new TcpClient(((EditText)findViewById(R.id.address)).getText().toString(), Integer.parseInt(((EditText)findViewById(R.id.port)).getText().toString()));
+                tc = new TcpClient(((EditText)findViewById(R.id.address)).getText().toString(), Settings.PORT);
                 tc.start();
-                b.setEnabled(false);
+                view.setEnabled(false);
+                findViewById(R.id.echo_button).setEnabled(false);
+            }
+        });
+        findViewById(R.id.echo_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                tc = new TcpClient(((EditText)findViewById(R.id.address)).getText().toString(), Settings.PORT+1);
+                tc.start();
+                view.setEnabled(false);
+                findViewById(R.id.start_button).setEnabled(false);
+            }
+        });
+        findViewById(R.id.exit_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                finish();
+                System.exit(0);
             }
         });
     }
